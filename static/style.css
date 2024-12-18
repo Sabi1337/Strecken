@@ -1,0 +1,79 @@
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            height: 100vh;
+        }
+
+        #sidebar {
+            width: 25%;
+            padding: 20px;
+            background-color: #f7f7f7;
+            overflow-y: auto;
+            border-right: 1px solid #ccc;
+        }
+
+        #map {
+            flex-grow: 1;
+            height: 100%;
+        }
+
+        h1 {
+            font-size: 1.5em;
+        }
+
+        .track {
+            margin: 10px 0;
+            cursor: pointer;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .track:hover {
+            background-color: #e6e6e6;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .track-list {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .track-item {
+            margin: 5px 0;
+        }
+
+        .delete-btn {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            color: red;
+        }
+
+        .delete-btn:hover {
+            color: darkred;
+        }
+
+        select, input[type="file"] {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+    </style>

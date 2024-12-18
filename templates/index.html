@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPX Viewer</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            height: 100vh;
+        }
+
+        #sidebar {
+            width: 25%;
+            padding: 20px;
+            background-color: #f7f7f7;
+            overflow-y: auto;
+            border-right: 1px solid #ccc;
+        }
+
+        #map {
+            flex-grow: 1;
+            height: 100%;
+        }
+
+        h1 {
+            font-size: 1.5em;
+        }
+
+        .track {
+            margin: 10px 0;
+            cursor: pointer;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .track:hover {
+            background-color: #e6e6e6;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .track-list {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .track-item {
+            margin: 5px 0;
+        }
+
+        .delete-btn {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            color: red;
+        }
+
+        .delete-btn:hover {
+            color: darkred;
+        }
+
+        select, input[type="file"] {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="sidebar">
+        <h1>GPX Viewer</h1>
+        <h3>GPX-Datei hochladen</h3>
+        <form id="uploadForm" method="POST" enctype="multipart/form-data">
+            <input type="file" name="file" accept=".gpx" required>
+            <button type="submit">Hochladen</button>
+        </form>
+        <hr>
+        <h3>Fahrer auswählen</h3>
+        <select id="fahrerSelect">
+            <option value="">Alle Fahrer</option>
+        </select>
+        <h3>Tracks</h3>
+        <div id="trackList" class="track-list">Lade Tracks...</div>
+    </div>
+
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
